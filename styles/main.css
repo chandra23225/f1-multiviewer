@@ -62,17 +62,6 @@ body {
   gap: 10px;
 }
 
-.live-badge {
-  background: var(--red);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 3px;
-  letter-spacing: 1.5px;
-  animation: blink 2s ease-in-out infinite;
-}
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.45; }
@@ -92,6 +81,40 @@ body {
 .refresh-btn:hover {
   border-color: var(--red);
   color: var(--text);
+}
+
+/* ── Data Source Badge ───────────────────────────────────────── */
+.data-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.data-badge--live {
+  background: var(--red);
+  color: #fff;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.data-badge--historical {
+  background: #2a2a2a;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+/* ── Panel note (data context label) ────────────────────────── */
+.panel-note {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  text-transform: none;
+  font-style: italic;
+  white-space: nowrap;
 }
 
 /* ── Session Bar ─────────────────────────────────────────────── */

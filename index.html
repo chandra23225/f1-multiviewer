@@ -16,7 +16,7 @@
     <div class="f1-logo" aria-label="Formula 1">F1</div>
     <span class="header-title">Multiviewer</span>
     <div class="header-actions">
-      <span class="live-badge" aria-live="polite">LIVE</span>
+      <span id="dataSourceBadge" class="data-badge data-badge--historical" aria-live="polite">⏱ LAST SESSION</span>
       <button class="refresh-btn" id="refreshBtn" aria-label="Refresh data">↻ Refresh</button>
     </div>
   </header>
@@ -40,6 +40,7 @@
       <div class="panel-header">
         <div class="panel-dot" aria-hidden="true"></div>
         Live Timing
+        <span id="timingNote" class="panel-note"></span>
       </div>
       <div id="timingPanel"></div>
     </section>
@@ -49,17 +50,19 @@
       <div class="panel-header">
         <div class="panel-dot" aria-hidden="true"></div>
         Driver Standings
+        <span class="panel-note" style="margin-left:auto">Current season</span>
       </div>
       <div id="standingsPanel"></div>
     </section>
 
     <!-- Car Telemetry -->
     <section class="panel" aria-label="Car Telemetry">
-      <div class="panel-header"></div>
+      <div class="panel-header">
         <div class="panel-dot" aria-hidden="true"></div>
         Car Telemetry
         <div class="panel-extra">
           <span id="telemDriverLabel"></span>
+          <span id="telemNote" class="panel-note"></span>
         </div>
       </div>
       <div id="telemPanel"></div>
@@ -70,6 +73,7 @@
       <div class="panel-header">
         <div class="panel-dot" aria-hidden="true"></div>
         Track &amp; Weather
+        <span id="weatherNote" class="panel-note"></span>
       </div>
       <div id="weatherPanel"></div>
     </section>
