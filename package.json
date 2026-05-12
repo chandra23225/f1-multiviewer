@@ -1,0 +1,13 @@
+{
+  "name": "f1-multiviewer",
+  "version": "1.0.0",
+  "description": "Live Formula 1 multiviewer dashboard — timing, standings, telemetry & weather",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "lint": "npx eslint src/**/*.js"
+  },
+  "keywords": ["f1", "formula1", "racing", "dashboard", "openf1"],
+  "author": "",
+  "license": "MIT"
+}

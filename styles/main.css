@@ -1,0 +1,214 @@
+/* ── Reset & Tokens ─────────────────────────────────────────── */
+:root {
+  --red:     #e10600;
+  --dark:    #0d0d0d;
+  --surface: #161616;
+  --card:    #1c1c1c;
+  --border:  #2a2a2a;
+  --text:    #f0f0f0;
+  --muted:   #777;
+  --green:   #00d2be;
+  --yellow:  #ffd700;
+  --purple:  #bf00ff;
+  --radius:  6px;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  background: #111;
+  border-bottom: 2px solid var(--red);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.f1-logo {
+  font-size: 24px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.header-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-badge {
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 1.5px;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 5px 12px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.refresh-btn:hover {
+  border-color: var(--red);
+  color: var(--text);
+}
+
+/* ── Session Bar ─────────────────────────────────────────────── */
+.session-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 7px 20px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.session-bar .item { color: var(--muted); }
+.session-bar .item strong { color: var(--text); margin-left: 4px; }
+
+.last-refresh {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* ── Grid Layout ─────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ── Panel Shell ─────────────────────────────────────────────── */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  background: #202020;
+  border-bottom: 1px solid var(--border);
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.panel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.panel-header .panel-extra {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Loading / Error States ──────────────────────────────────── */
+.loading {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-msg {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.error-msg .error-icon {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 6px;
+  color: var(--yellow);
+}
+
+.error-msg small {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+  opacity: 0.6;
+  word-break: break-all;
+}

@@ -1,0 +1,287 @@
+/* ── Timing Panel ────────────────────────────────────────────── */
+.timing-list { overflow-y: auto; max-height: 420px; }
+
+.timing-row {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-bottom: 1px solid #222;
+  gap: 10px;
+  transition: background 0.1s;
+}
+
+.timing-row:last-child { border-bottom: none; }
+.timing-row:hover { background: #222; }
+
+.timing-pos {
+  width: 26px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.timing-pos.top-1 { color: var(--yellow); }
+.timing-pos.top-2 { color: #c0c0c0; }
+.timing-pos.top-3 { color: #cd7f32; }
+
+.team-bar {
+  width: 3px;
+  height: 20px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.timing-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.timing-name {
+  font-weight: 600;
+  font-size: 13px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timing-abbr {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.timing-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.timing-lap {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--green);
+  display: block;
+}
+
+.timing-lap.purple { color: var(--purple); }
+
+.timing-laplabel {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── Standings Panel ─────────────────────────────────────────── */
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.standings-table thead th {
+  padding: 8px 12px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.standings-table tbody td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #222;
+  vertical-align: middle;
+}
+
+.standings-table tbody tr:last-child td { border-bottom: none; }
+.standings-table tbody tr:hover td { background: #222; }
+
+.pos-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #2a2a2a;
+  color: var(--muted);
+}
+
+.pos-badge.gold   { background: #332800; color: var(--yellow); }
+.pos-badge.silver { background: #252525; color: #c0c0c0; }
+.pos-badge.bronze { background: #2a1a0a; color: #cd7f32; }
+
+.driver-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-dot {
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.driver-last  { font-weight: 600; display: block; }
+.driver-first { font-size: 10px; color: var(--muted); display: block; }
+
+.team-name { color: var(--muted); font-size: 11px; }
+
+.pts { font-weight: 700; font-family: var(--font-mono); }
+
+/* Tyre badges */
+.tyre {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 800;
+  color: #000;
+}
+
+.tyre-S { background: #e8002d; color: #fff; }
+.tyre-M { background: var(--yellow); }
+.tyre-H { background: #f0f0f0; }
+.tyre-I { background: #39b54a; color: #fff; }
+.tyre-W { background: #0067ff; color: #fff; }
+
+/* ── Telemetry Panel ─────────────────────────────────────────── */
+.telem-driver-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.telem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+
+.telem-cell {
+  background: var(--card);
+  padding: 16px 14px;
+  text-align: center;
+}
+
+.telem-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.telem-val {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.telem-val--sm { font-size: 20px; }
+
+.telem-unit {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.gear-num {
+  font-family: var(--font-mono);
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.telem-drs .telem-val--sm { color: var(--muted); }
+.telem-drs.drs-active .telem-val--sm { color: var(--green); }
+
+.bar-track {
+  height: 5px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.bar-fill--throttle { background: var(--green); }
+.bar-fill--brake    { background: var(--red); }
+.bar-fill--rpm      { background: #3671C6; }
+
+/* ── Weather Panel ───────────────────────────────────────────── */
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.weather-cell {
+  background: var(--card);
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.weather-icon { font-size: 26px; margin-bottom: 5px; }
+
+.weather-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.weather-val {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.track-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.flag-icon { font-size: 16px; }
+
+.flag-label { flex: 1; }
+
+.weather-updated {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.flag-green  { border-top-color: var(--green); }
+.flag-yellow { border-top-color: var(--yellow); }
+.flag-red    { border-top-color: var(--red); }
+.flag-sc     { border-top-color: #ff8c00; }

@@ -1,0 +1,52 @@
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+[data-tip] {
+  position: relative;
+  cursor: default;
+}
+
+[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: var(--text);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+
+[data-tip]:hover::after { opacity: 1; }
+
+/* ── Fade-in animation for panel content ─────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.timing-list,
+.standings-table,
+.telem-grid,
+.weather-grid {
+  animation: fadeIn 0.25s ease;
+}
+
+/* ── Responsive tweaks ───────────────────────────────────────── */
+@media (max-width: 480px) {
+  .header-title { display: none; }
+  .session-bar .item:nth-child(n+3) { display: none; }
+  .weather-grid { grid-template-columns: repeat(2, 1fr); }
+  .telem-grid   { grid-template-columns: 1fr 1fr; }
+}
