@@ -1,73 +1,103 @@
-# 🏎️ F1 Multiviewer
+# F1 Multiviewer
 
-> A live Formula 1 dashboard showing timing, standings, telemetry and weather — all in one view.
+F1 Multiviewer is a lightweight Formula 1 dashboard that brings timing, standings, telemetry, and weather into one browser view.
 
-![F1 Multiviewer](https://img.shields.io/badge/F1-Multiviewer-e10600?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0tMSAxNEg5VjhIMTF2OHptNCAwaC0yVjhoMnY4eiIvPjwvc3ZnPg==)
-![Data](https://img.shields.io/badge/Data-OpenF1%20API-27F4D2?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+It is built with vanilla HTML, CSS, and JavaScript, using live racing data from OpenF1 and current championship standings from Jolpica Ergast.
 
-## Panels
+## Highlights
 
-| Panel | Description |
-|-------|-------------|
-| **Live Timing** | Session positions, best lap times, team colours |
-| **Driver Standings** | 2025 championship standings with points & tyre indicators |
-| **Car Telemetry** | Speed, gear, RPM, throttle, brake, DRS for the race leader |
-| **Track & Weather** | Air/track temp, wind, humidity, rainfall, flag status |
+- Live session timing with positions, lap data, and team colors
+- Current driver standings
+- Car telemetry for the leading driver, including speed, gear, RPM, throttle, brake, and DRS
+- Track and weather panel with temperatures, wind, humidity, rainfall, and race-control status
+- Auto-refresh every 30 seconds with manual refresh support
+- No framework or build step required
 
-## Stack
+## Data Sources
 
-- Vanilla HTML / CSS / JS — zero dependencies, zero build step
-- ES Modules for clean separation of concerns
-- [OpenF1 API](https://openf1.org) — live session, timing, telemetry, weather
-- [Jolpica Ergast](https://api.jolpi.ca/ergast) — championship standings
+- [OpenF1 API](https://openf1.org): sessions, drivers, timing, telemetry, weather, and race-control data
+- [Jolpica Ergast API](https://api.jolpi.ca/ergast): current Formula 1 standings
+
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript ES modules
+- OpenF1 API
+- Jolpica Ergast API
 
 ## Project Structure
 
-```
+```text
 f1-multiviewer/
-├── index.html              # Entry point
-├── styles/
-│   ├── main.css            # Layout, header, tokens
-│   ├── panels.css          # Panel-specific styles
-│   └── components.css      # Shared components, animations
-└── src/
-    ├── main.js             # App init, orchestration
-    ├── api.js              # All API calls
-    ├── utils.js            # Helpers (formatLapTime, etc.)
-    ├── assets/
-    │   └── teams.js        # Team colours & driver mappings
-    └── panels/
-        ├── timing.js       # Live timing renderer
-        ├── standings.js    # Standings renderer
-        ├── telemetry.js    # Telemetry renderer
-        └── weather.js      # Weather renderer
+|-- index.html
+|-- package.json
+|-- styles/
+|   |-- main.css
+|   |-- panels.css
+|   `-- components.css
+`-- src/
+    |-- main.js
+    |-- api.js
+    |-- utils.js
+    |-- assets/
+    |   `-- teams.js
+    `-- panels/
+        |-- timing.js
+        |-- standings.js
+        |-- telemetry.js
+        `-- weather.js
 ```
 
-## Running Locally
+## Run Locally
+
+Clone the repository:
 
 ```bash
-# Clone
-git clone https://github.com/YOUR_USERNAME/f1-multiviewer.git
+git clone https://github.com/chandra23225/f1-multiviewer.git
 cd f1-multiviewer
-
-# Serve (ES modules need a server, not file://)
-npx serve .
-# or
-python3 -m http.server 8080
 ```
 
-Then open [http://localhost:8080](http://localhost:8080).
+Install optional local tooling:
 
-> **Note:** ES Modules require a local server — opening `index.html` directly via `file://` won't work.
+```bash
+npm install
+```
 
-## Live Demo
+Start a local static server:
 
-🔗 [YOUR_USERNAME.github.io/f1-multiviewer](https://YOUR_USERNAME.github.io/f1-multiviewer)
+```bash
+npm run dev
+```
 
-## Data Refresh
+You can also use Python:
 
-Data auto-refreshes every **30 seconds**. Use the ↻ Refresh button for an immediate update.
+```bash
+python -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080
+```
+
+ES modules require a local server, so opening `index.html` directly with `file://` is not recommended.
+
+## Deployment
+
+This app can be hosted on any static-site platform:
+
+- GitHub Pages
+- Netlify
+- Vercel
+- Cloudflare Pages
+
+No backend server is required.
+
+## Notes
+
+Live data availability depends on upstream API coverage and the current Formula 1 session calendar. Outside live sessions, the dashboard may show the latest available session data.
 
 ## License
 
